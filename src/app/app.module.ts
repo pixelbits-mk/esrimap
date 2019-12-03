@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { BasemapComponent } from './basemap/basemap.component';
 import { OrdersComponent } from './orders/orders.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       BasemapComponent,
-      OrdersComponent
+      OrdersComponent,
+      SidenavComponent
    ],
    imports: [
       BrowserModule,
