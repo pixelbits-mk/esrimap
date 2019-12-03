@@ -25,7 +25,7 @@ export class EsriMap {
 
         this.map = this.esriTypeFactory.create<esri.Map>(
             EsriModuleEnum.Map,
-            { basemap: 'streets-navigation-vector' });
+            Object.assign({ basemap: 'streets-navigation-vector' }, properties));
 
         this.mapView = this.esriTypeFactory.create<esri.MapView>(
             EsriModuleEnum.MapView,

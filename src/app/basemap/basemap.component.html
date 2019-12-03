@@ -1,0 +1,12 @@
+<div  #changeMaps class="container">
+  <mat-form-field>
+    <mat-label>Choose Map</mat-label>
+    <mat-select [value]="basemap" (selectionChange)="onSelectionChange($event)">
+      <mat-option value="topo">Topology</mat-option>
+      <mat-option value="streets">Streets</mat-option>
+      <mat-option value="satellite">Satellite</mat-option>
+      <mat-option value="hybrid">Hybrid</mat-option>
+      <mat-option value="streets-navigation-vector">Streets Navigation</mat-option>
+    </mat-select>
+  </mat-form-field>  
+</div>
