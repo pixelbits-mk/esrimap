@@ -6,11 +6,13 @@ import { MapCoreModule } from './map-core/map-core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { BasemapComponent } from './basemap/basemap.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      BasemapComponent
+      BasemapComponent,
+      OrdersComponent
    ],
    imports: [
       BrowserModule,
