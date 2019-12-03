@@ -9,16 +9,16 @@ import { MatSelectChange } from '@angular/material/select';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('map', { static: true, read: ElementRef  })
+  @ViewChild('map', { static: true, read: ElementRef })
   map: ElementRef;
 
-  @ViewChild('basemapSelector', { static: true, read: ElementRef})
+  @ViewChild('basemapSelector', { static: true, read: ElementRef })
   basemapSelector: ElementRef;
 
-  @ViewChild('ordersList', { static: true, read: ElementRef})
+  @ViewChild('ordersList', { static: true, read: ElementRef })
   ordersList: ElementRef;
 
-  @ViewChild('sidenav', { static: true, read: ElementRef})
+  @ViewChild('sidenav', { static: true, read: ElementRef })
   sidenav: ElementRef;
 
   esriMap: EsriMap;
@@ -26,11 +26,11 @@ export class AppComponent implements OnInit {
   constructor(private mapService: MapService) {
   }
   async ngOnInit() {
-    this.esriMap =  await this.mapService.createMap(this.map.nativeElement, { basemap: 'topo'});
+    this.esriMap = await this.mapService.createMap(this.map.nativeElement, { basemap: 'topo' });
     this.esriMap.mapView.ui.components = ['attribution'];
     this.esriMap.mapView.ui.add(this.ordersList.nativeElement, 'top-left');
     this.esriMap.mapView.ui.add(this.basemapSelector.nativeElement, 'top-right');
-
+    this.esriMap.mapView.ui.add(this.sidenav.nativeElement, 'manual');
   }
 
 
