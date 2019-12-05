@@ -1,0 +1,14 @@
+<div class="pill_body">
+  <div class="_flex _flex_align_item_center _space_around">
+    <div class="margin_right_8">
+      <span class="title_font dark_purple">{{config?.title}}</span>
+    </div>
+
+    <div class="inner_pill_body">
+      <div class="_flex _flex_align_item_center">
+        <span class="title_font white">{{config?.filterValue}}</span>
+        <mat-icon *ngIf="config?.icon" class="white">{{config?.icon}}</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

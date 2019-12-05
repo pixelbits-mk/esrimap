@@ -10,6 +10,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { TestComponent } from './test/test.component';
 import { TippyModule } from 'ng-tippy';
+import { PillSelectComponent } from './pill-select/pill-select.component';
 
 @NgModule({
    declarations: [
@@ -17,7 +18,8 @@ import { TippyModule } from 'ng-tippy';
       BasemapComponent,
       OrdersComponent,
       SidenavComponent,
-      TestComponent
+      TestComponent,
+      PillSelectComponent
    ],
    imports: [
       BrowserModule,

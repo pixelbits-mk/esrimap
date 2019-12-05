@@ -1,0 +1,35 @@
+
+
+.pill_body {
+  background: #F4F2FF;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+}
+
+.pill_body:hover {
+  cursor: pointer;
+}
+
+.inner_pill_body {
+  background: #4C3BB9;
+  border-radius: 15px;
+  padding: 1px 10px 1px 10px;
+}
+
+.title_font {
+  font-size: 12px;
+  letter-spacing: 0.36px;
+}
+
+.white {
+  color: white;
+}
+
+.dark_purple {
+  color: #4C3BB9;
+}
+
+.margin_right_8 {
+  margin-right: 8px;
+}
