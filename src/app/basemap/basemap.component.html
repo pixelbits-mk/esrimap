@@ -1,6 +1,5 @@
 <div  #changeMaps class="container" *ngIf="basemap">
-  <div class="img" (click)="onToggleBasemap()">
-    <img [src]="basemap.imageUrl" />
+  <div class="img" [ngClass]="basemap.key" (click)="onToggleBasemap()">
     <span>{{ basemap.label }}</span>
   </div>
 </div>
