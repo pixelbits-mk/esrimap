@@ -8,19 +8,23 @@ import { MaterialModule } from './material/material.module';
 import { BasemapComponent } from './basemap/basemap.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { TestComponent } from './test/test.component';
+import { TippyModule } from 'ng-tippy';
 
 @NgModule({
    declarations: [
       AppComponent,
       BasemapComponent,
       OrdersComponent,
-      SidenavComponent
+      SidenavComponent,
+      TestComponent
    ],
    imports: [
       BrowserModule,
       MapCoreModule,
       MaterialModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      TippyModule
    ],
    providers: [],
    bootstrap: [

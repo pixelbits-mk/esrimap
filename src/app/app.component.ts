@@ -1,7 +1,8 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 import { MapService } from './map-core/map.service';
 import { EsriMap } from './map-core/esri-map';
 import { MatSelectChange } from '@angular/material/select';
+
 
 @Component({
   selector: 'app-root',
@@ -33,5 +34,8 @@ export class AppComponent implements OnInit {
     this.esriMap.mapView.ui.add(this.sidenav.nativeElement, 'manual');
   }
 
+  test() {
+    alert('hey');
+  }
 
 }
