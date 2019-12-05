@@ -1,4 +1,8 @@
-#order-list {
-    height: 500px;
-    overflow: scroll;
-}
+
+section {
+    width: inherit;
+    height: 800px;
+    overflow-y: scroll;
+    box-shadow: 0 0 3px black;
+  }
+  
