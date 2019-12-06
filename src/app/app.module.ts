@@ -11,6 +11,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { TestComponent } from './test/test.component';
 import { TippyModule } from 'ng-tippy';
 import { PillSelectComponent } from './pill-select/pill-select.component';
+import { NgxPopperModule } from 'ngx-popper';
 
 @NgModule({
    declarations: [
@@ -26,7 +27,8 @@ import { PillSelectComponent } from './pill-select/pill-select.component';
       MapCoreModule,
       MaterialModule,
       BrowserAnimationsModule,
-      TippyModule
+      TippyModule,
+      NgxPopperModule.forRoot({})
    ],
    providers: [],
    bootstrap: [

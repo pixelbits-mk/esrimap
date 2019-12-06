@@ -1,4 +1,10 @@
 <section id="order-list">
+  <div class="_flex_col">
+      <fleet-filter-pill [config]="{title: 'ORDERS', filterValue: 'UNASSIGNED'}" class="filter_pill margin_top_6">
+      </fleet-filter-pill>
+      <fleet-filter-pill [config]="{title: 'SORT BY', filterValue: 'PRIORITY'}" class="filter_pill margin_top_6"></fleet-filter-pill>
+  </div>
+  
 <mat-accordion>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
