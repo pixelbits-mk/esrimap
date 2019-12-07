@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,5 +11,7 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  onHide() {
+    document.getElementById('sidenav').classList.remove('visible');
+  }
 }
