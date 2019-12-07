@@ -1,1 +1,6 @@
-
+:host {
+  margin-top: 50px;
+}
+#order-list {
+  width: 250px;
+}

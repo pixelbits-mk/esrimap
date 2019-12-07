@@ -11,6 +11,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { TippyModule } from 'ng-tippy';
 import { NgxPopperModule } from 'ngx-popper';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { TopbarComponent } from './topbar/topbar.component';
 
 @NgModule({
    declarations: [
@@ -18,7 +19,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
       BasemapComponent,
       OrdersComponent,
       SidenavComponent,
-      VehiclesComponent
+      VehiclesComponent,
+      TopbarComponent
    ],
    imports: [
       BrowserModule,

@@ -1,0 +1,11 @@
+.container {
+    padding: 20px;
+    width: 100%;
+    background: blue;
+    position: fixed;
+    top: -52px;
+}
+.container:hover {
+    top: 0px;
+    background: yellow;
+}

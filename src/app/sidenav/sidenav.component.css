@@ -1,8 +1,13 @@
+:host {
+    margin-top: 50px;
+  }
 div {
-    padding: 15px;
-    position: absolute;
-    top: 15px;
-    width: 325px;
+    width: 250px;
     background-color: blue;
-    left: -350px;
+    left: -275px;
+    margin: 15px;
+    position: absolute;
+}
+div.visible {
+    left: 0px;
 }
