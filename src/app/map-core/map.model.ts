@@ -21,7 +21,8 @@ export enum EsriModuleEnum {
     PopupTemplate = 'esri/PopupTemplate',
     Search = 'esri/widgets/Search',
     Sketch = 'esri/widgets/Sketch',
-    WebMercatorUtils = 'esri/geometry/support/webMercatorUtils'
+    WebMercatorUtils = 'esri/geometry/support/webMercatorUtils',
+    Zoom = 'esri/widgets/Zoom'
 }
 
 export class LatLng {

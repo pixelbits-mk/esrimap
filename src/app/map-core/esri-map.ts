@@ -76,4 +76,7 @@ export class EsriMap {
         this.map.destroy();
         this.mapView.destroy();
     }
+    add(component: string | esri.Widget | HTMLElement | esri.UIAddComponent, position?: string | esri.UIAddPosition) {
+        this.mapView.ui.add(component, position);
+    }
 }
