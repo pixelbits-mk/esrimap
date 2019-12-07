@@ -25,7 +25,7 @@ export class EsriMap {
 
         this.map = this.esriTypeFactory.create<esri.Map>(
             EsriModuleEnum.Map,
-            { basemap: 'streets-navigation-vector' });
+            Object.assign({ basemap: 'streets-navigation-vector' }, properties));
 
         this.mapView = this.esriTypeFactory.create<esri.MapView>(
             EsriModuleEnum.MapView,
@@ -75,5 +75,8 @@ export class EsriMap {
     destroy() {
         this.map.destroy();
         this.mapView.destroy();
+    }
+    add(component: string | esri.Widget | HTMLElement | esri.UIAddComponent, position?: string | esri.UIAddPosition) {
+        this.mapView.ui.add(component, position);
     }
 }
