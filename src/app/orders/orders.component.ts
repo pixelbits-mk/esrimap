@@ -24,5 +24,8 @@ export class OrdersComponent implements OnInit {
       }
     };
   }
+  onClick() {
+    document.getElementById('sidenav').classList.add('visible');
+  }
 
 }
