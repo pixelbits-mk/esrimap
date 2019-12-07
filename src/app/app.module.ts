@@ -8,10 +8,9 @@ import { MaterialModule } from './material/material.module';
 import { BasemapComponent } from './basemap/basemap.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { TestComponent } from './test/test.component';
 import { TippyModule } from 'ng-tippy';
-import { PillSelectComponent } from './pill-select/pill-select.component';
 import { NgxPopperModule } from 'ngx-popper';
+import { VehiclesComponent } from './vehicles/vehicles.component';
 
 @NgModule({
    declarations: [
@@ -19,8 +18,7 @@ import { NgxPopperModule } from 'ngx-popper';
       BasemapComponent,
       OrdersComponent,
       SidenavComponent,
-      TestComponent,
-      PillSelectComponent
+      VehiclesComponent
    ],
    imports: [
       BrowserModule,
@@ -28,7 +26,7 @@ import { NgxPopperModule } from 'ngx-popper';
       MaterialModule,
       BrowserAnimationsModule,
       TippyModule,
-      NgxPopperModule.forRoot({})
+      NgxPopperModule.forRoot()
    ],
    providers: [],
    bootstrap: [

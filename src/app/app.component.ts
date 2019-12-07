@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
   @ViewChild('ordersList', { static: true, read: ElementRef })
   ordersList: ElementRef;
 
+  @ViewChild('vehiclesList', { static: true, read: ElementRef })
+  vehiclesList: ElementRef;
+
   @ViewChild('sidenav', { static: true, read: ElementRef })
   sidenav: ElementRef;
 
@@ -33,15 +36,12 @@ export class AppComponent implements OnInit {
     this.esriMap = await this.mapService.createMap(this.map.nativeElement, { basemap: 'topo' });
     this.esriMap.mapView.ui.components = ['attribution'];
     this.esriMap.add(this.ordersList.nativeElement, 'top-left');
+    this.esriMap.add(this.vehiclesList.nativeElement, 'top-right');
     this.esriMap.add(this.basemapSelector.nativeElement, 'top-right');
     this.esriMap.add(this.sidenav.nativeElement, 'manual');
     const zoom = await this.factory.create<esri.Zoom>(EsriModuleEnum.Zoom, { view: this.esriMap.mapView });
     this.esriMap.add(zoom, 'bottom-right');
 
-  }
-
-  test() {
-    alert('hey');
   }
 
 }

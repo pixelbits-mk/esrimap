@@ -1,11 +1,11 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-vehicles',
+  templateUrl: './vehicles.component.html',
+  styleUrls: ['./vehicles.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class VehiclesComponent implements OnInit {
   options: any;
   constructor(private e: ElementRef) { }
 
@@ -16,7 +16,7 @@ export class OrdersComponent implements OnInit {
       interactive: true,
       html: '#my-tooltip-template',
       createPopperInstanceOnInit: true,
-      placement: 'right',
+      placement: 'left',
       popperOptions: {
         modifiers: {
           preventOverflow: { enabled: false }
@@ -24,5 +24,4 @@ export class OrdersComponent implements OnInit {
       }
     };
   }
-
 }

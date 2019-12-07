@@ -1,40 +1,21 @@
 <section id="order-list">
-  <div class="_flex_col">
-      <fleet-filter-pill [config]="{title: 'ORDERS', filterValue: 'UNASSIGNED'}" class="filter_pill margin_top_6">
-      </fleet-filter-pill>
-      <fleet-filter-pill [config]="{title: 'SORT BY', filterValue: 'PRIORITY'}" class="filter_pill margin_top_6"></fleet-filter-pill>
-  </div>
-  
 <mat-accordion>
-  <mat-expansion-panel>
+  <mat-expansion-panel *ngFor="let panel of [1,2,3,4,5,6,7,8,9,10]">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Personal data
+        Order {{ panel }}
       </mat-panel-title>
       <mat-panel-description>
-        Type your name and age
+        This is a Test
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <mat-list role="list">
-      <mat-list-item *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]" appTippy [tippyOptions]="options" role="listitem">Item {{ item }}</mat-list-item>
-      
+      <mat-list-item *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]" appTippy [tippyOptions]="options" role="listitem">
+        Item {{ item }}
+      </mat-list-item>
     </mat-list>
   </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Self aware panel
-      </mat-panel-title>
-      <mat-panel-description>
-        Currently I am 
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-list role="list">
-      <mat-list-item role="listitem">Item 1</mat-list-item>
-      <mat-list-item role="listitem">Item 2</mat-list-item>
-      <mat-list-item role="listitem">Item 3</mat-list-item>
-    </mat-list>
-  </mat-expansion-panel>
+
 </mat-accordion>
 </section>

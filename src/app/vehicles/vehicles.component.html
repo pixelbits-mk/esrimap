@@ -1,0 +1,22 @@
+<section id="vehicle-list">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let panel of [1,2,3,4,5,6,7,8,9,10]">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Vehicle {{ panel }}
+          </mat-panel-title>
+          <mat-panel-description>
+            This is a Test
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-list role="list">
+          <mat-list-item *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]" appTippy [tippyOptions]="options" role="listitem">
+            Item {{ item }}
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    
+    </mat-accordion>
+    </section>
+    
