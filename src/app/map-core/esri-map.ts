@@ -13,6 +13,12 @@ export class EsriMap {
     constructor(private esriModuleLoader: EsriModuleLoader, private esriTypeFactory: EsriTypeFactory) {
 
     }
+    get<T>(property: string) {
+        if (!this[property]) {
+            throw new Error(`property ${property} does not exist on type EsriMap`);
+        }
+        return this[property] as T;
+    }
 
     async init(container: HTMLElement, properties: any) {
         await this.esriModuleLoader.loadModules([

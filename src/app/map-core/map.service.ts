@@ -11,6 +11,7 @@ import { LocationSelectMap } from './map-types/location-select.map';
 import { PolygonEditorMap } from './map-types/polygon-editor.map';
 import { EsriUtility } from './esri.utility';
 import { PolygonViewMap } from './map-types/polygon-view.map';
+import { PolygonEditMap } from './map-types/polygon-edit.map';
 
 @Injectable({
   providedIn: 'root'
@@ -20,22 +21,21 @@ export class MapService {
   }
 
   async createMap(container: HTMLElement, properties: any = {}) {
-    this.esriModuleLoader.loadCss();
     return await new EsriMap(this.esriModuleLoader, this.esriTypeFactory).init(container, properties);
   }
 
   async createLocationSelectMap(container: HTMLElement, properties: any = {}) {
-    this.esriModuleLoader.loadCss();
     return await new LocationSelectMap(this.esriModuleLoader, this.esriTypeFactory).init(container, properties);
   }
   async createPolygonEditorMap(container: HTMLElement, properties: any = {}) {
-    this.esriModuleLoader.loadCss();
     return await new PolygonEditorMap(this.esriModuleLoader, this.esriTypeFactory, this.esriUtility).init(container, properties);
   }
 
   async createPolygonViewMap(container: HTMLElement, properties: any = {}) {
-    this.esriModuleLoader.loadCss();
     return await new PolygonViewMap(this.esriModuleLoader, this.esriTypeFactory).init(container, properties);
 
+  }
+  async createPolygonEditMap(layer: esri.GraphicsLayer, properties: any = {}) {
+    return await new PolygonEditMap(this.esriModuleLoader, this.esriTypeFactory, this.esriUtility).init(layer, properties);
   }
 }
