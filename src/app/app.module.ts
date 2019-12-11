@@ -12,6 +12,7 @@ import { TippyModule } from 'ng-tippy';
 import { NgxPopperModule } from 'ngx-popper';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { CalendarModule } from './calendar/calendar.module';
 
 @NgModule({
    declarations: [
@@ -28,7 +29,8 @@ import { TopbarComponent } from './topbar/topbar.component';
       MaterialModule,
       BrowserAnimationsModule,
       TippyModule,
-      NgxPopperModule.forRoot()
+      NgxPopperModule.forRoot(),
+      CalendarModule
    ],
    providers: [],
    bootstrap: [

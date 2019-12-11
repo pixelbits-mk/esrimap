@@ -32,7 +32,10 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/popper.js/dist/umd/popper.js"
+              "./node_modules/popper.js/dist/umd/popper.js",
+              "./node_modules/vue/dist/vue.js",
+              "./node_modules/vue-custom-element/dist/vue-custom-element.js",
+              "./node_modules/v-calendar/lib/v-calendar.umd.js"
             ]
           },
           "configurations": {

@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@types/arcgis-js-api": "^4.13.0",
+    "dateformat": "^3.0.3",
     "esri-loader": "^2.12.0",
     "hammerjs": "^2.0.8",
     "ng-tippy": "^3.2.2",
@@ -30,6 +31,9 @@
     "popper.js": "^1.16.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "v-calendar": "^1.0.0-beta.23",
+    "vue": "^2.6.10",
+    "vue-custom-element": "^3.2.12",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

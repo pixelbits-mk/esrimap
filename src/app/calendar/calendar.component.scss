@@ -1,0 +1,15 @@
+
+::ng-deep .calendar {
+    display: inline-block;
+    padding: 10px;
+    border: solid 1px deepskyblue;
+    border-radius: 5px;
+    .vc-popover-content {
+        top: 9px;
+    }
+}
+::ng-deep .calendar a {
+    display: inline-flex;
+    vertical-align: middle;
+    line-height: 30px;
+}
