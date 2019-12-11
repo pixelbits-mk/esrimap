@@ -16,6 +16,10 @@ export class AppComponent implements OnInit {
   @ViewChild('map', { static: true, read: ElementRef })
   map: ElementRef;
 
+  @ViewChild('calendar', { static: true, read: ElementRef })
+  calendar: ElementRef;
+
+
   @ViewChild('topbar', { static: true, read: ElementRef })
   topbar: ElementRef;
 
@@ -46,6 +50,7 @@ export class AppComponent implements OnInit {
     this.esriMap.add(this.vehiclesList.nativeElement, { position: 'top-right', index: 2 });
     this.esriMap.add(this.basemapSelector.nativeElement, { position: 'top-right', index: 3 });
     this.esriMap.add(this.sidenav.nativeElement, { position: 'manual', index: 4 });
+    this.esriMap.add(this.calendar.nativeElement, { position: 'manual', index: 5});
 
   }
 
