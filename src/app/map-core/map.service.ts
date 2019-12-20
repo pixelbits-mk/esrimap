@@ -1,5 +1,5 @@
 import { Injectable, Inject, ElementRef } from '@angular/core';
-import { EsriModuleEnum } from './map.model';
+import { EsriModuleEnum, Polygon } from './map.model';
 import { loadModules } from 'esri-loader';
 import esri = __esri;
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
@@ -11,6 +11,7 @@ import { LocationSelectMap } from './map-types/location-select.map';
 import { PolygonEditorMap } from './map-types/polygon-editor.map';
 import { EsriUtility } from './esri.utility';
 import { PolygonViewMap } from './map-types/polygon-view.map';
+import { ServiceZoneMap } from './map-types/service-zone.map';
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,8 @@ export class MapService {
     this.esriModuleLoader.loadCss();
     return await new PolygonViewMap(this.esriModuleLoader, this.esriTypeFactory).init(container, properties);
 
+  }
+  async createServiceZoneMap(graphicsLayer: esri.GraphicsLayer, activePolygons: Polygon[], surroundingPolygons: Polygon[]) {
+    return await new ServiceZoneMap(this.esriModuleLoader, this.esriTypeFactory);
   }
 }

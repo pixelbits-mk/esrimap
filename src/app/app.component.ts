@@ -6,6 +6,7 @@ import { EsriDynamicTypeFactory } from './map-core/esri-dynamic-type.factory';
 
 import esri = __esri;
 import { EsriModuleEnum } from './map-core/map.model';
+import { ServiceZoneMap } from './map-core/map-types/service-zone.map';
 
 @Component({
   selector: 'app-root',
@@ -36,12 +37,14 @@ export class AppComponent implements OnInit {
   sidenav: ElementRef;
 
   esriMap: EsriMap;
+  serviceZoneMap: ServiceZoneMap;
 
   constructor(private mapService: MapService, private factory: EsriDynamicTypeFactory) {
   }
   async ngOnInit() {
     this.esriMap = await this.mapService.createMap(this.map.nativeElement, { basemap: 'topo' });
     this.esriMap.mapView.ui.components = ['attribution'];
+    this.serviceZoneMap = await this.mapService.createServiceZoneMap(this.esriMap.map.graphicsLayer, )
 
     const zoom = await this.factory.create<esri.Zoom>(EsriModuleEnum.Zoom, { view: this.esriMap.mapView });
     this.esriMap.add(zoom, { position: 'bottom-right', index: 0 });

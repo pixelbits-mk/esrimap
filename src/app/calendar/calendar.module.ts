@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CalendarComponent } from './calendar.component';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -10,7 +11,8 @@ import { CommonModule } from '@angular/common';
       CalendarComponent
    ],
    imports: [
-       CommonModule
+       CommonModule,
+       MaterialModule
    ],
    providers: [],
    schemas: [
