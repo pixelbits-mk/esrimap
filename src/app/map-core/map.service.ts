@@ -21,7 +21,7 @@ export class MapService {
 
   async createMap(container: HTMLElement, properties: any = {}) {
     this.esriModuleLoader.loadCss();
-    return await new EsriMap(this.esriModuleLoader, this.esriTypeFactory).init(container, properties);
+    return await new EsriMap(this.esriModuleLoader, this.esriTypeFactory, this.esriUtility).init(container, properties);
   }
 
   async createLocationSelectMap(container: HTMLElement, properties: any = {}) {

@@ -24,4 +24,23 @@ export class EsriUtility {
     lngLatToXy(lng: number, lat: number): number[] {
       return this.WebMercatorUtils.lngLatToXY(lng, lat);
     }
+
+    getCoordinates(mapView: esri.MapView, esriPolygon: esri.Polygon) {
+      return {
+        map: esriPolygon.rings[0].map(t => this.xyToLngLat(t[0], t[1])),
+        geographic: esriPolygon.rings[0],
+        screen:
+            esriPolygon.rings[0]
+            .map(t => ({
+                type: 'point',
+                x: t[0],
+                y: t[1],
+                spatialReference: {
+                    wkid: 3857
+                }
+            } as esri.Point))
+            .map(x => mapView.toScreen(x))
+            .map(t => ({ top: t.y, left: t.x }))
+      };
+    }
 }

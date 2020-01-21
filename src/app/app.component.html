@@ -1,5 +1,7 @@
 <app-calendar #calendar></app-calendar>
-<div #map class="map"></div>
+<div class="map-wrapper">
+  <div #map class="map"></div>
+</div>
 <app-topbar #topbar></app-topbar>
 <app-basemap #basemapSelector [esriMap]="esriMap" initialBasemap="topo"></app-basemap>
 <app-orders #ordersList></app-orders>

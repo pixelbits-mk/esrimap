@@ -1,8 +1,9 @@
 import esri = __esri;
 import { EsriTypeFactory } from './esri-type.factory';
 import { EsriModuleLoader } from './esri-module.loader';
-import { EsriModuleEnum, LatLng } from './map.model';
+import { EsriModuleEnum, LatLng, Polygon } from './map.model';
 import { Injectable } from '@angular/core';
+import { EsriUtility } from './esri.utility';
 
 @Injectable()
 export class EsriMap {
@@ -10,7 +11,9 @@ export class EsriMap {
     mapView: esri.MapView;
     pin: esri.Graphic;
     graphicsLayer: esri.GraphicsLayer;
-    constructor(private esriModuleLoader: EsriModuleLoader, private esriTypeFactory: EsriTypeFactory) {
+    sketch: esri.Sketch;
+    polygons: Polygon[] = [];
+    constructor(private esriModuleLoader: EsriModuleLoader, private esriTypeFactory: EsriTypeFactory, private esriUtility: EsriUtility) {
 
     }
 
@@ -19,7 +22,9 @@ export class EsriMap {
             EsriModuleEnum.Map,
             EsriModuleEnum.MapView,
             EsriModuleEnum.GraphicsLayer,
-            EsriModuleEnum.Graphic
+            EsriModuleEnum.Graphic,
+            EsriModuleEnum.Sketch,
+            EsriModuleEnum.WebMercatorUtils
         ]);
 
 
@@ -33,44 +38,77 @@ export class EsriMap {
         this.graphicsLayer = this.esriTypeFactory.create<esri.GraphicsLayer>(
             EsriModuleEnum.GraphicsLayer);
         this.map.layers.add(this.graphicsLayer);
-        if (properties.point) {
-            this.setPoint(properties.point as LatLng);
-            this.center();
-        }
 
+        this.sketch = this.esriTypeFactory.create<esri.Sketch>(
+            EsriModuleEnum.Sketch, {
+            layer: this.graphicsLayer,
+            view: this.mapView,
+            availableCreateTools: ['polygon']
+        });
 
-        return this;
-
-    }
-    setPoint(point: LatLng) {
-        const iconPath = 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z';
-        const simpleMarkerSymbol = {
-            type: 'simple-marker',
-            path: iconPath,
-            color: 'red',
-            size: '30px',  // pixels
-            outline: {  // autocasts as new SimpleLineSymbol()
-                color: 'red',
-                width: 0  // points
+        const tmp = {
+            type: 'polygon',
+            rings: [
+                [-12247861.549207836, 8400327.368091738],
+                [-11357523.04374234, 8400327.368091738],
+                [-11285774.053664627, 6273950.983063497],
+                [-12247861.549207836, 6277212.395797711],
+                [-12247861.549207836, 8400327.368091738]],
+                // [-49.628891944872386, 67.69832908568742],
+                //  [4.746093749998766, 63.02175012898493],
+                // [-19.62889909743754, 23.02581046180808],
+                // [-82.44140624997861, 34.885930940745325],
+                // [-49.628891944872386, 67.69832908568742]],
+            spatialReference: {
+                    wkid:  3857
             }
         };
+        const graphic = this.esriTypeFactory.create<esri.Graphic>(EsriModuleEnum.Graphic, {
+            geometry: tmp,
+            symbol: {
+                type: 'simple-fill', // autocasts as new SimpleFillSymbol()
+                color: [117, 150, 248, 0.38],
+                outline: {
+                  // autocasts as new SimpleLineSymbol()
+                  color: [117, 150, 248],
+                  width: 1
+                }
+            }
+        });
+        this.graphicsLayer.graphics.push(graphic);
 
+        this.mapView.ui.add(this.sketch, 'top-right');
+        setTimeout(() => {
+            this.sketch.viewModel.update(graphic, { tool: 'transform'});
+        }, 2000);
 
-        // do something with the result graphic
-        const mapPoint = { type: 'point', latitude: point.lat, longitude: point.lng };
-        this.pin = this.esriTypeFactory.create<esri.Graphic>(
-            EsriModuleEnum.Graphic, { geometry: mapPoint, symbol: simpleMarkerSymbol });
+        // Listen to sketch widget's create event.
+        this.sketch.on('create', (event) => {
+            // check if the create event's state has changed to complete indicating
+            // the graphic create operation is completed.
+            if (event.state === 'complete') {
+                const esriPolygon = event.graphic.geometry as esri.Polygon;
+                event.graphic.symbol = {
+                    type: 'simple-fill', // autocasts as new SimpleFillSymbol()
+                    color: [117, 150, 248, 0.38],
+                    outline: {
+                      // autocasts as new SimpleLineSymbol()
+                      color: [117, 150, 248],
+                      width: 1
+                    }
+                } as any;
 
-        this.graphicsLayer.graphics.removeAll();
-        this.graphicsLayer.graphics.add(this.pin);
-
+                const polygon = new Polygon();
+                polygon.paths = esriPolygon.rings[0].map(t => this.esriUtility.xyToLngLat(t[0], t[1]));
+                polygon.coordinates = this.esriUtility.getCoordinates(this.mapView, esriPolygon);
+                this.polygons.push(polygon);
+                console.log(this.polygons);
+            }
+        });
         return this;
+
     }
-    center() {
-        if (this.pin) {
-            this.mapView.goTo(this.pin);
-        }
-    }
+
 
     destroy() {
         this.map.destroy();
@@ -79,4 +117,5 @@ export class EsriMap {
     add(component: string | esri.Widget | HTMLElement | esri.UIAddComponent, position?: string | esri.UIAddPosition) {
         this.mapView.ui.add(component, position);
     }
+
 }

@@ -68,4 +68,16 @@ export interface MapItem {
 export class Polygon {
     attributes: { [key: string]: any };
     paths: LatLng[];
+    coordinates: Coordinates;
+}
+
+export class Coordinates {
+    map: LatLng[];
+    geographic: number[][];
+    screen: ScreenPoint[];
+}
+
+export class ScreenPoint {
+    top: number;
+    left: number;
 }
