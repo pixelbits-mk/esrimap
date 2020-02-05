@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject, ComponentFixture } from '@angular/core/testing';
-import { MapService } from './map.service';
+import { MapFactory } from './map.factory';
 import { EsriModuleEnum } from './map.model';
 import { EsriTypeFactory } from './esri-type.factory';
 import { EsriModuleLoader } from './esri-module.loader';

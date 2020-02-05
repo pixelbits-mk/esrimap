@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MapService } from './map.service';
+import { MapFactory } from './map.factory';
 import { EsriTypeFactory } from './esri-type.factory';
 import { EsriModuleLoader } from './esri-module.loader';
 import { MapConfig, API_KEY_TOKEN } from './map.model';
@@ -20,7 +20,7 @@ export class MapCoreModule {
     return {
       ngModule: MapCoreModule,
       providers: [
-        MapService,
+        MapFactory,
         EsriTypeFactory,
         EsriModuleLoader,
         EsriUtility,

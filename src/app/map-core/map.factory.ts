@@ -15,7 +15,7 @@ import { PolygonViewMap } from './map-types/polygon-view.map';
 @Injectable({
   providedIn: 'root'
 })
-export class MapService {
+export class MapFactory {
   constructor(private esriModuleLoader: EsriModuleLoader, private esriTypeFactory: EsriTypeFactory, private esriUtility: EsriUtility) {
   }
 

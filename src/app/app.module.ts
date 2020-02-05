@@ -13,6 +13,7 @@ import { NgxPopperModule } from 'ngx-popper';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { CalendarModule } from './calendar/calendar.module';
+import { GeofenceModule } from './geofence/geofence.module';
 
 @NgModule({
    declarations: [
@@ -30,7 +31,8 @@ import { CalendarModule } from './calendar/calendar.module';
       BrowserAnimationsModule,
       TippyModule,
       NgxPopperModule.forRoot(),
-      CalendarModule
+      CalendarModule,
+      GeofenceModule
    ],
    providers: [],
    bootstrap: [
